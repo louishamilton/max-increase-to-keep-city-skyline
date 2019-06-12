@@ -4,8 +4,8 @@ class Solution:
         totalIncrease = 0
         for rowNumber, row in enumerate(grid):
             for columnNumber, buildingHeight in enumerate(row):
-                maxHeight = min(max(row), max(flippedAxiesGrid[columnNumber]))
-                totalIncrease += self.findBuildingIncrease(maxHeight, buildingHeight)
+                maxHeightAllowed = min(max(row), max(flippedAxiesGrid[columnNumber]))
+                totalIncrease += self.findBuildingIncrease(maxHeightAllowed, buildingHeight)
         return totalIncrease
                 
     #could just use zip() as shortcut
@@ -18,6 +18,6 @@ class Solution:
             newGrid.append(newRow)
         return newGrid
     
-    def findBuildingIncrease(self, maxHeight, buildingHeight):
-        buildingIncrease = maxHeight - buildingHeight
+    def findBuildingIncrease(self, maxHeightAllowed, buildingHeight):
+        buildingIncrease = maxHeightAllowed - buildingHeight
         return buildingIncrease
